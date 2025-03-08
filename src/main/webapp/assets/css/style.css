@@ -1,0 +1,98 @@
+/* Style.css */
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+.main-banner {
+    background-size: cover;
+    height: 400px;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.services .service-box {
+    background: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.services .service-box:hover {
+    transform: scale(1.05);
+}
+
+.car-swiper .swiper-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.car-box {
+    text-align: center;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+}
+
+.car-box img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.google-map {
+    background: #f0f0f0;
+}
+
+/* Switch button style */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    border-radius: 50%;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
