@@ -35,7 +35,7 @@
             border-radius: 15px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
-            padding: 20px;
+            padding: 22px;
             background: #fff;
             text-align: center;
         }
