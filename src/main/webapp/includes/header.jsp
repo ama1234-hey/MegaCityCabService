@@ -49,9 +49,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/pages/services.jsp" class="btn btn-secondary">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/pages/aboutUs.jsp" class="btn btn-secondary">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="${pageContext.request.contextPath}/pages/contactUs.jsp" class="btn btn-secondary">Contact Us</a>
+                </li>
                 <li class="nav-item">
                     <input type="text" class="mui-input" placeholder="Search cars, drivers...">
                 </li>
