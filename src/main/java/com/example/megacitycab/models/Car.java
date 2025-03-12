@@ -28,6 +28,9 @@ public class Car {
         this.image = image;
     }
 
+    public Car(int carId, String model, String brand, String year, String licensePlate, String status) {
+    }
+
     public int getCarID() {
         return carID;
     }

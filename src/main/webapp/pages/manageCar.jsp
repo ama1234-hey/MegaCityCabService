@@ -47,7 +47,7 @@
             <td><%= car.getModel() %></td>
             <td><%= car.getBrand() %></td>
             <td><%= car.getLicensePlate() %></td>
-            <td>$<%= car.getPricePerDay() %></td>
+            <td>Rs.<%= car.getPricePerDay() %></td>
             <td><%= car.getStatus() %></td>
             <td>
                 <img src="<%= car.getImage() %>" alt="Car Image" width="80">
@@ -128,7 +128,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <div class="modal-body">
-                <form id="editCarForm" action="<%= request.getContextPath() %>/CarController" method="post">
+                <form id="editCarForm" action="<%= request.getContextPath() %>/CarController" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="action" value="update">
                     <input type="hidden" name="carID" id="editCarID">
                     <div class="mb-3">
@@ -154,6 +154,10 @@
                             <option value="Booked">Booked</option>
                             <option value="In Maintenance">In Maintenance</option>
                         </select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Upload Image</label>
+                        <input type="file" name="image" class="form-control">
                     </div>
                     <button type="submit" class="btn btn-primary">Update Car</button>
                 </form>
