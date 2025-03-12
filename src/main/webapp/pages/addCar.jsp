@@ -43,7 +43,7 @@
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            background: linear-gradient(135deg, #036e29, #59d044);
             border: none;
             padding: 12px;
             border-radius: 10px;
@@ -53,7 +53,7 @@
         }
 
         .btn-primary:hover {
-            background: linear-gradient(135deg, #ff4b2b, #ff416c);
+            background: linear-gradient(135deg, #036e29, #59d044);
         }
 
         .image-preview {

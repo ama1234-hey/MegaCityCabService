@@ -20,7 +20,7 @@
         }
         .register-container {
             max-width: 500px;
-            background: rgba(255, 255, 255, 0.9);
+            background: rgb(173, 232, 175);
             padding: 50px;
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
@@ -33,14 +33,14 @@
             border-radius: 8px;
         }
         .btn-register {
-            background: linear-gradient(to right, #007bff, #00c6ff);
+            background: linear-gradient(to right, #036e29, #59d044);
             border: none;
             color: white;
             transition: all 0.3s ease-in-out;
         }
         .btn-register:hover {
             transform: scale(1.05);
-            box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.5);
+            box-shadow: 0px 4px 10px rgb(89, 208, 68);
         }
     </style>
 </head>
@@ -50,7 +50,7 @@
         <h3 class="text-center mb-4">Customer Registration</h3>
 
         <!-- Registration Form -->
-        <form id="registerForm" action="${pageContext.request.contextPath} /CustomerController" method="post">
+        <form id="registerForm" action="${pageContext.request.contextPath}/CustomerController" method="post">
             <div class="mb-3">
                 <label>Full Name</label>
                 <input type="text" name="name" class="form-control" required>
