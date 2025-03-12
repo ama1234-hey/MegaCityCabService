@@ -68,7 +68,7 @@
         }
         .car-box img {
             width: 50%; /* Make images responsive */
-            height: 250px;
+            height: 260px;
             object-fit: cover;
             border-radius: 10px;
         }
