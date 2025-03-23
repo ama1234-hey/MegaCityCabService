@@ -3,7 +3,6 @@ package com.example.megacitycab.controllers;
 import com.example.megacitycab.dao.UserDAO;
 import com.example.megacitycab.models.User;
 import com.example.megacitycab.dao.DatabaseConnection;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

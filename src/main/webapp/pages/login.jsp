@@ -14,9 +14,9 @@
     <!-- Custom Styles -->
     <style>
         body {
-            background: url('<%= request.getContextPath() %>/assets/images/login.jpg') no-repeat center center fixed;
+            background: url('<%= request.getContextPath() %>/assets/images/kool.jpeg') no-repeat center center fixed;
             background-size: cover;
-            backdrop-filter: blur(2px);
+
             height: 100%;
             margin: 0;
             display: flex;
@@ -57,13 +57,13 @@
             margin: 0 10px;
         }
         .login-container {
+
             max-width: 500px;
-            background: rgb(173, 232, 175);
+            background: linear-gradient(135deg, #4CAF50, #81C784, #A5D6A7); /* Advanced green gradient */
             padding: 50px;
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
-
         }
         .login-container:hover {
             transform: translateY(-5px);

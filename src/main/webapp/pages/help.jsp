@@ -20,7 +20,7 @@
         }
 
         .main-banner {
-            background: url('<%= request.getContextPath() %>/assets/images/help-banner.jpg') no-repeat center center;
+            background: url('<%= request.getContextPath() %>/assets/images/jo.jpg') no-repeat center center;
             background-size: cover;
             height: 60vh;
             display: flex;
@@ -84,7 +84,7 @@
 <body>
 
 <!-- Header -->
-<jsp:include page="/includes/header.jsp" />
+<jsp:include page="/includes/header2.jsp" />
 
 <!-- Main Banner -->
 <div class="main-banner">

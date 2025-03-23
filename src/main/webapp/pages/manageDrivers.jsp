@@ -14,56 +14,99 @@
     <title>Manage Drivers</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #ffffff;
+        }
+        .table {
+            color: #ffffff !important;
+        }
+        .modal-content {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        .modal-header, .modal-footer {
+            border-color: #444;
+        }
+        .btn-close {
+            filter: invert(1);
+        }
+        .badge {
+            font-size: 0.9em;
+        }
+        .btn-primary, .btn-success, .btn-warning, .btn-danger {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover, .btn-success:hover, .btn-warning:hover, .btn-danger:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
+
+<!-- Header -->
+
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4">🚖 Manage Drivers</h2>
+    <h2 class="text-center mb-4 animate__animated animate__fadeIn">🚖 Manage Drivers</h2>
 
     <!-- Add Driver Button -->
-    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addDriverModal">➕ Add Driver</button>
+    <button class="btn btn-primary mb-3 animate__animated animate__fadeIn" data-bs-toggle="modal" data-bs-target="#addDriverModal">
+        <i class="fas fa-plus"></i> Add Driver
+    </button>
 
     <!-- Drivers Table -->
-    <table id="driversTable" class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>License</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Availability</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for (Driver driver : driverList) { %>
-        <tr>
-            <td><%= driver.getDriverID() %></td>
-            <td><%= driver.getName() %></td>
-            <td><%= driver.getLicenseNumber() %></td>
-            <td><%= driver.getPhoneNumber() %></td>
-            <td><%= driver.getEmail() %></td>
-            <td><%= driver.isAvailable() ? "✅ Available" : "❌ Not Available" %></td>
-            <td>
-                <button class="btn btn-warning btn-sm editBtn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editDriverModal"
-                        data-id="<%= driver.getDriverID() %>"
-                        data-name="<%= driver.getName() %>"
-                        data-license="<%= driver.getLicenseNumber() %>"
-                        data-phone="<%= driver.getPhoneNumber() %>"
-                        data-email="<%= driver.getEmail() %>">✏️ Edit</button>
-
-                <a href="<%= request.getContextPath() %>/DriverController?action=delete&id=<%= driver.getDriverID() %>" class="btn btn-danger btn-sm">🗑️ Delete</a>
-            </td>
-        </tr>
-        <% } %>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table id="driversTable" class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>License</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Availability</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (Driver driver : driverList) { %>
+            <tr>
+                <td><%= driver.getDriverID() %></td>
+                <td><%= driver.getName() %></td>
+                <td><%= driver.getLicenseNumber() %></td>
+                <td><%= driver.getPhoneNumber() %></td>
+                <td><%= driver.getEmail() %></td>
+                <td>
+                        <span class="badge bg-<%= driver.isAvailable() ? "success" : "danger" %>">
+                            <%= driver.isAvailable() ? "✅ Available" : "❌ Not Available" %>
+                        </span>
+                </td>
+                <td>
+                    <button class="btn btn-warning btn-sm editBtn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editDriverModal"
+                            data-id="<%= driver.getDriverID() %>"
+                            data-name="<%= driver.getName() %>"
+                            data-license="<%= driver.getLicenseNumber() %>"
+                            data-phone="<%= driver.getPhoneNumber() %>"
+                            data-email="<%= driver.getEmail() %>">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <a href="<%= request.getContextPath() %>/DriverController?action=delete&id=<%= driver.getDriverID() %>"
+                       class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Add Driver Modal -->
@@ -135,6 +178,10 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#driversTable').DataTable();
@@ -154,7 +201,5 @@
         });
     });
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

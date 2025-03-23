@@ -14,63 +14,99 @@
     <title>Manage Cars</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            background-color: #000000; /* Changed to pure black */
+            color: #ffffff;
+        }
+        .card {
+            background-color: #2c2c2c;
+            border: 1px solid #444;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .table {
+            color: #ffffff !important;
+        }
+        .modal-content {
+            background-color: #2c2c2c;
+            color: #ffffff;
+        }
+        .modal-header, .modal-footer {
+            border-color: #444;
+        }
+        .btn-close {
+            filter: invert(1);
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
+
+<!-- Header -->
+
 
 <div class="container mt-4">
-    <h2 class="text-center mb-4">🚗 Manage Cars</h2>
+    <h2 class="text-center mb-4 animate__animated animate__fadeIn">🚗 Manage Cars</h2>
 
     <!-- Add Car Button -->
-    <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCarModal">➕ Add Car</button>
+    <button class="btn btn-primary mb-3 animate__animated animate__fadeIn" data-bs-toggle="modal" data-bs-target="#addCarModal">
+        <i class="fas fa-plus"></i> Add Car
+    </button>
 
     <!-- Cars Table -->
-    <table id="carsTable" class="table table-striped">
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Model</th>
-            <th>Brand</th>
-            <th>License Plate</th>
-            <th>Price/Day</th>
-            <th>Status</th>
-            <th>Image</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        <% for (Car car : carList) { %>
-        <tr>
-            <td><%= car.getCarID() %></td>
-            <td><%= car.getModel() %></td>
-            <td><%= car.getBrand() %></td>
-            <td><%= car.getLicensePlate() %></td>
-            <td>Rs.<%= car.getPricePerDay() %></td>
-            <td><%= car.getStatus() %></td>
-            <td>
-                <img src="<%= car.getImage() %>" alt="Car Image" width="80">
-            </td>
-            <td>
-                <button class="btn btn-warning btn-sm editBtn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#editCarModal"
-                        data-id="<%= car.getCarID() %>"
-                        data-model="<%= car.getModel() %>"
-                        data-brand="<%= car.getBrand() %>"
-                        data-license="<%= car.getLicensePlate() %>"
-                        data-price="<%= car.getPricePerDay() %>"
-                        data-status="<%= car.getStatus() %>"
-                        data-image="<%= car.getImage() %>">✏️ Edit</button>
-
-                <a href="<%= request.getContextPath() %>/CarController?action=delete&id=<%= car.getCarID() %>"
-                   class="btn btn-danger btn-sm">🗑️ Delete</a>
-            </td>
-        </tr>
-        <% } %>
-        </tbody>
-    </table>
+    <div class="table-responsive">
+        <table id="carsTable" class="table table-striped table-dark">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Model</th>
+                <th>Brand</th>
+                <th>License Plate</th>
+                <th>Price/Day</th>
+                <th>Status</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            <% for (Car car : carList) { %>
+            <tr>
+                <td><%= car.getCarID() %></td>
+                <td><%= car.getModel() %></td>
+                <td><%= car.getBrand() %></td>
+                <td><%= car.getLicensePlate() %></td>
+                <td>Rs.<%= car.getPricePerDay() %></td>
+                <td><span class="badge bg-<%= car.getStatus().equals("Available") ? "success" : "warning" %>"><%= car.getStatus() %></span></td>
+                <td>
+                    <img src="<%= car.getImage() %>" alt="Car Image" width="80" class="img-thumbnail">
+                </td>
+                <td>
+                    <button class="btn btn-warning btn-sm editBtn"
+                            data-bs-toggle="modal"
+                            data-bs-target="#editCarModal"
+                            data-id="<%= car.getCarID() %>"
+                            data-model="<%= car.getModel() %>"
+                            data-brand="<%= car.getBrand() %>"
+                            data-license="<%= car.getLicensePlate() %>"
+                            data-price="<%= car.getPricePerDay() %>"
+                            data-status="<%= car.getStatus() %>"
+                            data-image="<%= car.getImage() %>">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <a href="<%= request.getContextPath() %>/CarController?action=delete&id=<%= car.getCarID() %>"
+                       class="btn btn-danger btn-sm">
+                        <i class="fas fa-trash"></i> Delete
+                    </a>
+                </td>
+            </tr>
+            <% } %>
+            </tbody>
+        </table>
+    </div>
 </div>
 
 <!-- Add Car Modal -->
@@ -166,6 +202,10 @@
     </div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     $(document).ready(function () {
         $('#carsTable').DataTable();
@@ -187,7 +227,5 @@
         });
     });
 </script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
