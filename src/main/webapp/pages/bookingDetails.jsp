@@ -9,30 +9,35 @@
     <title>View Bookings - Admin</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
             --primary-color: #6366f1;
-            --danger-color: #294cbf;
-            --card-bg: #ffffff;
+            --danger-color: #dc3545;
+            --card-bg: #2c2c2c;
+            --text-color: #ffffff;
+            --hover-color: #3b3b3b;
         }
 
         body {
-            background: #f8fafc;
+            background: #1a1a1a;
             font-family: 'Inter', sans-serif;
             padding: 2rem 0;
+            color: var(--text-color);
         }
 
         .booking-card {
             background: var(--card-bg);
             border-radius: 16px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
             overflow: hidden;
             margin-bottom: 1.5rem;
         }
 
         .booking-card:hover {
-            transform: translateY(-3px);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
         }
 
         .card-header {
@@ -44,7 +49,7 @@
 
         .detail-group {
             padding: 1.5rem;
-            border-bottom: 1px solid #f1f5f9;
+            border-bottom: 1px solid #444;
         }
 
         .detail-group:last-child {
@@ -52,13 +57,13 @@
         }
 
         .detail-label {
-            color: #64748b;
+            color: #a0aec0;
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
 
         .detail-value {
-            color: #1e293b;
+            color: var(--text-color);
             font-weight: 500;
             margin-bottom: 1rem;
         }
@@ -76,13 +81,19 @@
         }
 
         .delete-btn:hover {
-            background: #dc2626;
+            background: #c82333;
+        }
+
+        .animate__animated {
+            animation-duration: 0.5s;
         }
     </style>
 </head>
 <body>
+<!-- Header -->
+
 <div class="container">
-    <div class="mb-4 text-center">
+    <div class="mb-4 text-center animate__animated animate__fadeIn">
         <h2 class="fw-bold mb-3">📋 Current Bookings</h2>
         <p class="text-muted">Manage all customer reservations</p>
     </div>
@@ -100,7 +111,7 @@
             for (Booking booking : bookings) {
         %>
         <div class="col">
-            <div class="booking-card">
+            <div class="booking-card animate__animated animate__fadeInUp">
                 <div class="card-header">
                     <h5 class="mb-0">Booking #<%= booking.getOrderId() %></h5>
                     <small><%= booking.getOrderDatetime() %></small>
@@ -125,7 +136,7 @@
                             <div class="detail-value"><%= booking.getPickupLocation() %></div>
                         </div>
                         <div class="col-6">
-                            <div class="detail-label">Duration</div>
+                            <div class="detail-label">Duration (First 200Km Free)</div>
                             <div class="detail-value"><%= booking.getDuration() %> Km</div>
                         </div>
                     </div>

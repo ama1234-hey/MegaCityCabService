@@ -13,10 +13,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .hero-section {
-            height: 60vh;
+            height: 65vh;
             background-color: #434343;
             width: 100%;
-            background: url('<%= request.getContextPath() %>/assets/images/login.jpg') no-repeat center center fixed;
+            background: url('<%= request.getContextPath() %>/assets/images/hi.jpeg') no-repeat center center fixed;
+            background-size: cover; /* Increase the width of the image by covering the entire container */
+            background-position: center 70%; /* Move the image down slightly (adjust the percentage as needed) */
             display: flex;
             align-items: center;
             color: #2c2c2c;
@@ -58,11 +60,10 @@
 </head>
 <body>
 
-<!-- Top Right Buttons -->
-<div class="top-right-buttons">
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
-    <a href="../index.jsp" class="btn btn-danger">Logout</a>
-</div>
+<!-- Header -->
+<jsp:include page="/includes/header2.jsp" />
+
+
 
 <!-- Booking Modal -->
 <div class="modal fade" id="bookingModal" tabindex="-1">
@@ -98,7 +99,7 @@
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label">Duration (Km)</label>
+                        <label class="form-label">Duration(Km)  [First 200Km free] </label>
                         <input type="number" class="form-control" id="duration" name="duration" required>
                     </div>
 
@@ -161,14 +162,23 @@
         </div>
     </div>
 </div>
+<!-- Top Right Buttons -->
+<div class="top-right-buttons">
+
+</div>
 
 <!-- Featured Cars Section -->
 <div class="container py-5">
+    <div class="d-flex justify-content-center mb-4 gap-3">
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#bookingModal">Book Now</button>
+        <a href="../pages/makePayment.jsp" class="btn btn-danger">Make Payment</a>
+        <a href="../index.jsp" class="btn btn-danger">Logout</a>
+    </div>
     <h2 class="text-center mb-5">Available Vehicles</h2>
     <div class="row g-4">
         <%
             CarDAO carDAO = new CarDAO();
-            List<Car> cars = carDAO.getFeaturedCars(20);
+            List<Car> cars = carDAO.getFeaturedCars(30);
             for (Car car : cars) {
         %>
         <div class="col-md-4 col-lg-3">

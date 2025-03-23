@@ -61,6 +61,8 @@
 </head>
 
 <body>
+<!-- Header -->
+<jsp:include page="/includes/header2.jsp" />
 
 <!-- Hero Section -->
 <section class="hero-section text-light">

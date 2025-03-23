@@ -14,30 +14,39 @@
     <!-- Custom Styles -->
     <style>
         body {
-            background: url('<%= request.getContextPath() %>/assets/images/login.jpg') no-repeat center center fixed;
+            background: url('<%= request.getContextPath() %>/assets/images/kool.jpeg') no-repeat center center fixed;
             background-size: cover;
-            backdrop-filter: blur(5px);
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
         .register-container {
             max-width: 500px;
-            background: rgb(173, 232, 175);
+            background: linear-gradient(135deg, #4CAF50, #81C784, #A5D6A7); /* Advanced green gradient */
             padding: 50px;
             border-radius: 12px;
             box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease-in-out;
         }
+
         .register-container:hover {
             transform: translateY(-5px);
         }
+
         .form-control {
             border-radius: 8px;
         }
+
         .btn-register {
             background: linear-gradient(to right, #036e29, #59d044);
             border: none;
             color: white;
             transition: all 0.3s ease-in-out;
         }
+
         .btn-register:hover {
             transform: scale(1.05);
             box-shadow: 0px 4px 10px rgb(89, 208, 68);
@@ -45,39 +54,37 @@
     </style>
 </head>
 <body>
-<div class="d-flex justify-content-center align-items-center vh-90">
-    <div class="register-container">
-        <h3 class="text-center mb-4">Customer Registration</h3>
+<div class="register-container">
+    <h3 class="text-center mb-4">Customer Registration</h3>
 
-        <!-- Registration Form -->
-        <form id="registerForm" action="${pageContext.request.contextPath}/CustomerController" method="post">
-            <div class="mb-3">
-                <label>Full Name</label>
-                <input type="text" name="name" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Email</label>
-                <input type="email" name="email" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Phone Number</label>
-                <input type="text" name="phone" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>NIC (National ID)</label>
-                <input type="text" name="nic" class="form-control" required>
-            </div>
-            <div class="mb-3">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" required>
-            </div>
+    <!-- Registration Form -->
+    <form id="registerForm" action="${pageContext.request.contextPath}/CustomerController" method="post">
+        <div class="mb-3">
+            <label>Full Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Email</label>
+            <input type="email" name="email" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Phone Number</label>
+            <input type="text" name="phone" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>NIC (National ID)</label>
+            <input type="text" name="nic" class="form-control" required>
+        </div>
+        <div class="mb-3">
+            <label>Password</label>
+            <input type="password" name="password" class="form-control" required>
+        </div>
 
-            <button type="submit" class="btn btn-register w-100 mt-3">Register</button>
-            <p class="text-center mt-3">
-                Already have an account? <a href="login.jsp">Login Here</a>
-            </p>
-        </form>
-    </div>
+        <button type="submit" class="btn btn-register w-100 mt-3">Register</button>
+        <p class="text-center mt-3">
+            Already have an account? <a href="login.jsp">Login Here</a>
+        </p>
+    </form>
 </div>
 
 <!-- JavaScript Validation -->

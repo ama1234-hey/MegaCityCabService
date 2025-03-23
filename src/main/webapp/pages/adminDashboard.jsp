@@ -115,6 +115,9 @@
         <a class="nav-link" href="bookingDetails.jsp">
             <i class="fas fa-chart-bar me-2"></i>Reports
         </a>
+        <a class="nav-link" href="registeredCustomers.jsp">
+            <i class="fas fa-chart-bar me-2"></i>Registered Customers
+        </a>
         <a class="nav-link" href="../index.jsp">
             <i class="fas fa-sign-out-alt me-2"></i>Logout
         </a>
@@ -127,7 +130,6 @@
         <div class="text-muted">Today: <%= new java.util.Date().toLocaleString() %></div>
     </div>
 
-//Dashboard Overview
     <%
         Integer totalBookings = (Integer) request.getAttribute("totalBookings");
         Integer availableCars = (Integer) request.getAttribute("availableCars");

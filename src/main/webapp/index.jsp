@@ -14,7 +14,7 @@
     <style>
         /* Fixed Background Image */
         .main-banner {
-            background: url('<%= request.getContextPath() %>/assets/images/b.jpg') no-repeat center center fixed;
+            background: url('<%= request.getContextPath() %>/assets/images/back1.jpg') no-repeat center center fixed;
             background-size: cover;
             height: 100vh;
             display: flex;
@@ -24,6 +24,11 @@
             color: white;
             font-size: 2rem;
             position: relative;
+        }
+
+        .main-banner .banner-text{
+            padding-top: 350px;
+
         }
 
         /* Services Section */
@@ -117,21 +122,21 @@
     <div class="row">
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s1.jpg" alt="24/7 Service">
+                <img src="<%= request.getContextPath() %>/assets/images/24h.jpg" alt="24/7 Service">
                 <h3>🚖 24/7 Service</h3>
                 <p>We provide cab services around the clock!</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s2.jpg" alt="Affordable Rates">
+                <img src="<%= request.getContextPath() %>/assets/images/F1.jpg" alt="Affordable Rates">
                 <h3>💰 Affordable Rates</h3>
                 <p>Get the best rates for your rides.</p>
             </div>
         </div>
         <div class="col-md-4">
             <div class="service-box">
-                <img src="<%= request.getContextPath() %>/assets/images/s3.jpg" alt="Clean & Safe">
+                <img src="<%= request.getContextPath() %>/assets/images/f3.jpg" alt="Clean & Safe">
                 <h3>✅ Clean & Safe</h3>
                 <p>Our cars are well-maintained and sanitized.</p>
             </div>
@@ -201,7 +206,7 @@
     <h2 class="text-center fw-bold mb-4">Find Us Here</h2>
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <iframe class="w-100" height="350"
+            <iframe class="w-100" height="420"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31716.059056856113!2d79.8578417938208!3d6.9219239929928825!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae25960bf9c4573%3A0xe1090a899bf91c92!2sColombo%2C%20Sri%20Lanka!5e0!3m2!1sen!2slk!4v1700000000000"
                     allowfullscreen="" loading="lazy"></iframe>
         </div>
